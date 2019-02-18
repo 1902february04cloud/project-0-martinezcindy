@@ -5,9 +5,12 @@ This is your main script, this should call several other scripts within your pac
 '''
 
 import logging
-import logging.config
-from controller import controller
+# import logging.config
+import controller
 import os
+import business_logic
+import custom_error
+import data_access
 # from io.data_access import register
 # import io.data_access as data_access
 # import service.business_logic as business_logic
@@ -16,10 +19,13 @@ import os
 
 logger = logging.getLogger('main')
 logger.setLevel(logging.DEBUG)
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+# TODO
 
 def main():
-	print('TO-DO')
+	# print('TO-DO')
     # os.sys()
+    controller.Welcome()
 
 def simple_logging():
 	'''
@@ -42,28 +48,28 @@ def simple_logging():
 '''
 -> specifying optional values for the yaml configuration location
 and the level
-'''
-def configured_logging(config_path='../../../../resources/logging.yaml'):
-    # if os.path.exists(config_path):
-    #     with open(config_path,'r') as f:
-    #         config = yaml.safe_load(f.read())
+# '''
+# def configured_logging(config_path='../../../../resources/logging.yaml'):
+#     # if os.path.exists(config_path):
+#     #     with open(config_path,'r') as f:
+#     #         config = yaml.safe_load(f.read())
         
-    #     #Enable our loaded configuration
-    #     logging.config.dictConfig(config)
-    # else:
-    #     raise ValueError('Logging configuration not found')
+#     #     #Enable our loaded configuration
+#     #     logging.config.dictConfig(config)
+#     # else:
+#     #     raise ValueError('Logging configuration not found')
 
-    #Test our configuration
-    logger = logging.getLogger('8-logging')
+#     #Test our configuration
+#     logger = logging.getLogger('8-logging')
 
-    #Goes to a file
-    logger.info('I have configured logging through a file')
+#     #Goes to a file
+#     logger.info('I have configured logging through a file')
 
-    #Goes to another file
-    logger.error('I have configured logging through a file')
+#     #Goes to another file
+#     logger.error('I have configured logging through a file')
 
-    #Goes to the console
-    logger.debug('I have configured logging through a file')
+#     #Goes to the console
+#     logger.debug('I have configured logging through a file')
 
 if __name__ == '__main__':
 	main()
