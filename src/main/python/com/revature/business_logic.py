@@ -6,10 +6,12 @@ from getpass import getpass
 import data_access
 import hashlib
 from main import logger
+from custom_error import WithdrawLimitError, SuspiciousDepositError, OverdraftError
 # TODO Add datetime, add encrytption
 # add logging to each function
 
-current_user = ''
+WITHDRAW_LIMIT = 10,000
+DEPOSIT_LIMIT = 10,000
 
 def register():
     customer = input("Please choose a username: ")
@@ -17,18 +19,19 @@ def register():
         # logger.error()TODO
         print("Username not available. Please try again.\n")
         register()
-    hasher = hashlib.sha224()
     passwd = input("Please choose a password: ") #condense lines for security / add salt TODO
+    hasher = hashlib.sha224()
     hasher.update(passwd.encode('utf-8'))
     hashed_passwd = hasher.hexdigest()
-    data_access.register_user(customer, hashed_passwd)
-    current_user = customer
+    data_access.register_user(customer,hashed_passwd)
+    # data_access.register_user(customer,passwd)
 
 def login(customer):
-    hasher = hashlib.sha224()
     attempt = getpass("Enter your password: ")
+    hasher = hashlib.sha224()
     hasher.update(attempt.encode('utf-8'))
     hashed_attempt = hasher.hexdigest()
+    # if attempt == data_access.access_user_password(customer):
     if hashed_attempt == data_access.access_user_password(customer): 
         current_user = customer
         print(f'====== Welcome back, {customer}! ======\n')
@@ -45,18 +48,27 @@ def login(customer):
         
 def handle_options(x):
     if x == 'b':
-        data_access.get_balance()
-        # 
+        print(data_access.get_balance())
     elif x == 'w':
         amount = input("Enter amount to withdraw: ")
-        data_access.withdraw(amount)
-        # TODO catch format error
+        assert amount.isdigit(), "Not a valid numeric amount."
+        amount = int(amount)
+        balance = int(data_access.get_balance().split()[-1])
+        if amount >= WITHDRAW_LIMIT:
+            raise WithdrawLimitError
+        if amount > balance:
+            raise OverdraftError
+
+        data_access.withdraw(amount)     
     elif x == 'd':
         amount = input("Enter amount to deposit: ")
-        # TODO catch format error
+        assert amount.isdigit(), "Not a valid numeric amount."
+        amount = int(amount)
+        if amount > DEPOSIT_LIMIT:
+            raise SuspiciousDepositError
         data_access.deposit(amount)
     elif x == 'p':
-        print(data_access.past_transactions(current_user))
+        print(data_access.past_transactions())
     elif x == 'l':
         return
     else:
@@ -72,18 +84,6 @@ def try_again(a):
         a = input("Login failed. Please try again.\n Username: ")
         try_again(a)
     
-
-# def get_balance():
-#     return data_access.get_balance()
-
-# def withdraw():
-#     return data_access.withdraw()
-
-# def deposit():
-#     return
-
-# def past_transactions():
-    # return
 
 # def main():
 # 	print('TO-DO')
