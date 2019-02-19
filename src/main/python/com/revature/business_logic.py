@@ -2,7 +2,7 @@
 # from __future__ import print_function
 # from ..io.data_access import register_user as register_user, access_user_password as access_user_password, user_exists as user_exists
 # C:\Users\marti\Repositories\project-0-martinezcindy\src\main\python\com\revature\io
-from getpass import getpass
+# from getpass import getpass
 import data_access
 import hashlib
 from main import logger
@@ -20,20 +20,28 @@ def register():
         print("Username not available. Please try again.\n")
         register()
     passwd = input("Please choose a password: ") #condense lines for security / add salt TODO
+    # print(passwd)
     hasher = hashlib.sha224()
     hasher.update(passwd.encode('utf-8'))
     hashed_passwd = hasher.hexdigest()
-    data_access.register_user(customer,hashed_passwd)
+    print(hashed_passwd)
+    data_access.register_user(customer, hashed_passwd)
+    # current_user = x 
+    print("\n\n ===Thank you for registering with Cinders Bank!===\n\nPlease login for options: \n")
+    login(customer)
+    # return
     # data_access.register_user(customer,passwd)
 
 def login(customer):
-    attempt = getpass("Enter your password: ")
+    attempt = input("Enter your password: ")
+    # print(attempt)
     hasher = hashlib.sha224()
     hasher.update(attempt.encode('utf-8'))
     hashed_attempt = hasher.hexdigest()
+    print(hashed_attempt)
+    print(data_access.access_user_password(customer))
     # if attempt == data_access.access_user_password(customer):
-    if hashed_attempt == data_access.access_user_password(customer): 
-        current_user = customer
+    if hashed_attempt==data_access.access_user_password(customer): 
         print(f'====== Welcome back, {customer}! ======\n')
         x = input("Login successful. \n \n Choose an option: \
             \n *Enter 'b' to view your balance\

@@ -13,16 +13,16 @@ def register_user(username, password):
 		user_data.write(password+"\nBalance: 0\n")
 	return
 
+def user_exists(username):
+	u = Path("/user_data/"+ username +".txt")
+	# print(u.is_file())
+	return u.is_file()
+
 def access_user_password(username):
 	USER_DATA_PATH = "user_data/"+ username + ".txt"
 	with open(USER_DATA_PATH) as user_data:
-		data = user_data.readline()
+		data = user_data.readline().replace("\n","")
 	return data
-
-def user_exists(username):
-	u = Path("/user_data/"+ username +".txt")
-	print(u.is_file())
-	return u.is_file()
 
 def get_balance():
 	with open(USER_DATA_PATH) as user_data:
