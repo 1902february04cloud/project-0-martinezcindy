@@ -12,8 +12,6 @@ contain classes which get or present data from or to the user by
 making calls to the *Service* layer.
 '''
 
-# current_user = ''
-
 def main():
     Welcome()
     
@@ -26,12 +24,9 @@ def Welcome():
     logout()
 
 def logout():
-    # current_user = ''
     print("Logout successful.\n")
     print("Thank you for banking with Cinders Bank!")
     return
-
-
 
 if __name__ == '__main__':
 	main()

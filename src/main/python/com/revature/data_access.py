@@ -3,15 +3,15 @@
 import os, sys
 from datetime import datetime 
 from pathlib import Path
-# import logging
-# add logging to each function TODO
-# logger = logging.getLogger('main')
+import logging
+logger = logging.getLogger('main')
 USER_DATA_PATH = ""
 
 def register_user(username, password):
 	USER_DATA_PATH = "user_data/"+ username + ".txt"
 	with open(USER_DATA_PATH, "w") as user_data:
 		user_data.write(password+"\nBalance: 0\n")
+		logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" register info written to file.")
 	return
 
 def user_exists(username):
@@ -24,6 +24,7 @@ def access_user_password(username):
 		return
 	with open(USER_DATA_PATH) as user_data:
 		data = user_data.readline().replace("\n","")
+		logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" password accessed.")
 	return data
 
 def get_balance(username):
@@ -44,9 +45,9 @@ def withdraw(username, amount):
 		for l in lines:
 			l = l.replace("\n", "")
 			user_data.write(l+"\n")
-		# user_data.writelines(lines)
+			logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" withdraw update written.")
 	with open(USER_DATA_PATH,"a") as user_data_append:
-		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Withraw of $"+str(amount)+". New Balance: $"+ new_balance+"\n")
+		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Withraw of $ "+str(amount)+". New Balance: $"+ new_balance+"\n")
 
 def deposit(username, amount):
 	#Assumes no deposit error
@@ -59,9 +60,9 @@ def deposit(username, amount):
 		for l in lines:
 			l = l.replace("\n", "")
 			user_data.write(l+"\n")
-		# user_data.writelines(lines)
+			logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" deposit update written.")
 	with open(USER_DATA_PATH,"a") as user_data_append:
-		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Deposit of $"+str(amount)+". New Balance: $"+ new_balance+"\n")
+		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Deposit of $ "+str(amount)+". New Balance: $"+ new_balance+"\n")
 
 def past_transactions(username):
 	USER_DATA_PATH = "user_data/"+ username + ".txt"

@@ -5,7 +5,7 @@ import data_access
 import hashlib
 import logging
 from custom_error import WithdrawLimitError, SuspiciousDepositError, OverdraftError
-# TODO Add logging to each function
+from datetime import datetime
 
 WITHDRAW_LIMIT = 10000
 DEPOSIT_LIMIT = 10000
@@ -13,9 +13,9 @@ LOGIN_ATTEMPTS = 0
 logger = logging.getLogger('main')
 
 def register():
+    logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" register was called.")
     customer = input("Please choose a username: ")
     if data_access.user_exists(customer):
-        # logger.error()TODO
         print("Username not available. Please try again.\n")
         register()
     passwd = input("Please choose a password: ") #add salt TODO
@@ -27,6 +27,7 @@ def register():
     login(customer)
 
 def login(customer):
+    logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" login was called.")
     attempt = input("Enter your password: ")
     # print(attempt)
     hasher = hashlib.sha224()
@@ -61,6 +62,7 @@ def give_options(customer):
         print("Overdraft Error. Insufficient balance.")
           
 def handle_options(customer, x):
+    logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" option handling was used.")
     if x == 'b':
         print(data_access.get_balance(customer))
     elif x == 'w':
@@ -69,16 +71,18 @@ def handle_options(customer, x):
         amount = int(amount)
         balance = int(data_access.get_balance(customer).split()[-1])
         if amount >= WITHDRAW_LIMIT:
+            logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Withdraw Error raised.")
             raise WithdrawLimitError
         if amount > balance:
+            logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Overdraft Error raised.")
             raise OverdraftError
-
         data_access.withdraw(customer, amount)     
     elif x == 'd':
         amount = input("Enter amount to deposit: ")
         assert amount.isdigit(), "Not a valid numeric amount."
         amount = int(amount)
         if amount > DEPOSIT_LIMIT:
+            logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Suspicious Error raised.")
             raise SuspiciousDepositError
         data_access.deposit(customer, amount)
     elif x == 'p':

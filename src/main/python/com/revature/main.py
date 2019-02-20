@@ -11,6 +11,7 @@ import os
 import business_logic
 import custom_error
 import data_access
+from datetime import datetime
 # from io.data_access import register
 # import io.data_access as data_access
 # import service.business_logic as business_logic
@@ -18,14 +19,12 @@ import data_access
 # import yaml
 
 logger = logging.getLogger('main')
-logger.setLevel(logging.DEBUG)
-logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, filename='app.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 # TODO
 
 def main():
-	# print('TO-DO')
-    # os.sys()
-    controller.Welcome()
+	logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" main was called.")
+	controller.Welcome()
 
 def simple_logging():
 	'''
