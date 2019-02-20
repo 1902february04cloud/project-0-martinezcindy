@@ -8,9 +8,6 @@ Precautions included are:
 	*Withdraw Limit
 '''
 
-# def main():
-# 	print('TO-DO')
-
 class OverdraftError(Exception):
 	"""Raised when withraw amount is larger than Balance."""
 	pass
@@ -22,6 +19,3 @@ class SuspiciousDepositError(Exception):
 class WithdrawLimitError(Exception):
 	"""Raised when withdraw amount is over user's daily withdraw limit."""
 	pass
-
-# if __name__ == '__main__':
-# 	main()

@@ -40,14 +40,14 @@ def withdraw(username, amount):
 	with open(USER_DATA_PATH,"r") as user_data:
 		lines = user_data.readlines()
 	new_balance = str(int(lines[1].split()[-1]) - amount)
-	lines[1] = "Balance: $"+ new_balance
+	lines[1] = "Balance: "+ new_balance
 	with open(USER_DATA_PATH, "w") as user_data:
 		for l in lines:
 			l = l.replace("\n", "")
 			user_data.write(l+"\n")
 			logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" withdraw update written.")
 	with open(USER_DATA_PATH,"a") as user_data_append:
-		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Withraw of $ "+str(amount)+". New Balance: $"+ new_balance+"\n")
+		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Withraw of "+str(amount)+". New Balance: "+ new_balance+"\n")
 
 def deposit(username, amount):
 	#Assumes no deposit error
@@ -55,14 +55,14 @@ def deposit(username, amount):
 	with open(USER_DATA_PATH,"r") as user_data:
 		lines = user_data.readlines()
 	new_balance = str(int(lines[1].split()[-1]) + amount)
-	lines[1] = "Balance: $"+ new_balance + "\n"
+	lines[1] = "Balance: "+ new_balance + "\n"
 	with open(USER_DATA_PATH, "w") as user_data:
 		for l in lines:
 			l = l.replace("\n", "")
 			user_data.write(l+"\n")
 			logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" deposit update written.")
 	with open(USER_DATA_PATH,"a") as user_data_append:
-		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Deposit of $ "+str(amount)+". New Balance: $"+ new_balance+"\n")
+		user_data_append.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" Deposit of "+str(amount)+". New Balance: "+ new_balance+"\n")
 
 def past_transactions(username):
 	USER_DATA_PATH = "user_data/"+ username + ".txt"

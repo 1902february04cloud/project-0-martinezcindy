@@ -1,2 +1,152 @@
 
 
+main - DEBUG - 2019-02-20 09:31:19 main was called.
+main - DEBUG - 2019-02-20 09:31:23 login was called.
+main - DEBUG - 2019-02-20 09:31:26 password accessed.
+main - DEBUG - 2019-02-20 09:31:27 option handling was used.
+main - DEBUG - 2019-02-20 09:31:32 option handling was used.
+main - DEBUG - 2019-02-20 09:32:29 main was called.
+main - DEBUG - 2019-02-20 09:32:31 login was called.
+main - DEBUG - 2019-02-20 09:32:32 password accessed.
+main - DEBUG - 2019-02-20 09:32:36 option handling was used.
+main - DEBUG - 2019-02-20 09:32:39 option handling was used.
+main - DEBUG - 2019-02-20 09:33:48 main was called.
+main - DEBUG - 2019-02-20 09:33:50 login was called.
+main - DEBUG - 2019-02-20 09:33:51 password accessed.
+main - DEBUG - 2019-02-20 09:33:53 option handling was used.
+main - DEBUG - 2019-02-20 09:33:54 option handling was used.
+main - DEBUG - 2019-02-20 09:35:14 main was called.
+main - DEBUG - 2019-02-20 09:35:16 login was called.
+main - DEBUG - 2019-02-20 09:35:17 login was called.
+main - DEBUG - 2019-02-20 09:35:48 login was called.
+main - DEBUG - 2019-02-20 09:35:48 login was called.
+main - DEBUG - 2019-02-20 09:35:49 login was called.
+main - DEBUG - 2019-02-20 09:35:53 main was called.
+main - DEBUG - 2019-02-20 09:35:53 register was called.
+main - DEBUG - 2019-02-20 09:36:00 register info written to file.
+main - DEBUG - 2019-02-20 09:36:00 login was called.
+main - DEBUG - 2019-02-20 09:36:01 password accessed.
+main - DEBUG - 2019-02-20 09:36:06 option handling was used.
+main - DEBUG - 2019-02-20 09:36:09 option handling was used.
+main - DEBUG - 2019-02-20 09:36:11 deposit update written.
+main - DEBUG - 2019-02-20 09:36:11 deposit update written.
+main - DEBUG - 2019-02-20 09:36:15 option handling was used.
+main - DEBUG - 2019-02-20 09:36:19 option handling was used.
+main - DEBUG - 2019-02-20 09:36:21 withdraw update written.
+main - DEBUG - 2019-02-20 09:36:21 withdraw update written.
+main - DEBUG - 2019-02-20 09:36:21 withdraw update written.
+main - DEBUG - 2019-02-20 09:36:23 option handling was used.
+main - DEBUG - 2019-02-20 09:37:14 option handling was used.
+main - DEBUG - 2019-02-20 09:37:18 main was called.
+main - DEBUG - 2019-02-20 09:37:23 register was called.
+main - DEBUG - 2019-02-20 09:37:25 register was called.
+main - DEBUG - 2019-02-20 09:37:33 register info written to file.
+main - DEBUG - 2019-02-20 09:37:33 login was called.
+main - DEBUG - 2019-02-20 09:37:35 password accessed.
+main - DEBUG - 2019-02-20 09:37:37 option handling was used.
+main - DEBUG - 2019-02-20 09:37:43 register info written to file.
+main - DEBUG - 2019-02-20 09:37:43 login was called.
+main - DEBUG - 2019-02-20 09:37:53 password accessed.
+main - DEBUG - 2019-02-20 09:37:53 login was called.
+main - DEBUG - 2019-02-20 09:39:47 password accessed.
+main - DEBUG - 2019-02-20 09:39:47 login was called.
+main - DEBUG - 2019-02-20 09:50:43 main was called.
+main - DEBUG - 2019-02-20 09:50:45 register was called.
+main - DEBUG - 2019-02-20 09:50:48 register was called.
+main - DEBUG - 2019-02-20 09:51:00 register info written to file.
+main - DEBUG - 2019-02-20 09:51:00 login was called.
+main - DEBUG - 2019-02-20 09:51:38 login was called.
+main - DEBUG - 2019-02-20 09:51:47 login was called.
+main - DEBUG - 2019-02-20 09:54:28 main was called.
+main - DEBUG - 2019-02-20 09:54:31 lregister was called.
+main - DEBUG - 2019-02-20 09:54:36 register info written to file.
+main - DEBUG - 2019-02-20 09:54:36 login was called.
+main - DEBUG - 2019-02-20 09:54:40 password accessed.
+main - DEBUG - 2019-02-20 09:54:43 option handling was used.
+main - DEBUG - 2019-02-20 09:54:49 main was called.
+main - DEBUG - 2019-02-20 09:54:54 login was called.
+main - DEBUG - 2019-02-20 09:54:57 login was called.
+main - DEBUG - 2019-02-20 09:57:48 main was called.
+main - DEBUG - 2019-02-20 09:57:50 lregister was called.
+main - DEBUG - 2019-02-20 09:57:54 register info written to file.
+main - DEBUG - 2019-02-20 09:57:54 login was called.
+main - DEBUG - 2019-02-20 09:57:56 password accessed.
+main - DEBUG - 2019-02-20 09:58:00 option handling was used.
+main - DEBUG - 2019-02-20 09:58:03 option handling was used.
+main - DEBUG - 2019-02-20 09:58:06 deposit update written.
+main - DEBUG - 2019-02-20 09:58:06 deposit update written.
+main - DEBUG - 2019-02-20 09:58:10 option handling was used.
+main - DEBUG - 2019-02-20 09:58:15 option handling was used.
+main - DEBUG - 2019-02-20 09:58:19 withdraw update written.
+main - DEBUG - 2019-02-20 09:58:19 withdraw update written.
+main - DEBUG - 2019-02-20 09:58:19 withdraw update written.
+main - DEBUG - 2019-02-20 09:58:20 option handling was used.
+main - DEBUG - 2019-02-20 09:58:23 option handling was used.
+main - DEBUG - 2019-02-20 09:59:22 option handling was used.
+main - DEBUG - 2019-02-20 09:59:24 Overdraft Error raised.
+main - DEBUG - 2019-02-20 09:59:32 main was called.
+main - DEBUG - 2019-02-20 09:59:34 login was called.
+main - DEBUG - 2019-02-20 09:59:36 password accessed.
+main - DEBUG - 2019-02-20 09:59:38 option handling was used.
+main - DEBUG - 2019-02-20 09:59:44 option handling was used.
+main - DEBUG - 2019-02-20 09:59:47 Suspicious Error raised.
+main - DEBUG - 2019-02-20 10:31:36 main was called.
+main - DEBUG - 2019-02-20 10:31:40 lregister was called.
+main - DEBUG - 2019-02-20 10:31:47 register info written to file.
+main - DEBUG - 2019-02-20 10:31:47 login was called.
+main - DEBUG - 2019-02-20 10:31:50 password accessed.
+main - DEBUG - 2019-02-20 10:31:54 option handling was used.
+main - DEBUG - 2019-02-20 10:31:59 main was called.
+main - DEBUG - 2019-02-20 10:32:01 login was called.
+main - DEBUG - 2019-02-20 10:32:03 password accessed.
+main - DEBUG - 2019-02-20 10:32:07 option handling was used.
+main - DEBUG - 2019-02-20 10:32:10 option handling was used.
+main - DEBUG - 2019-02-20 10:32:13 deposit update written.
+main - DEBUG - 2019-02-20 10:32:13 deposit update written.
+main - DEBUG - 2019-02-20 10:32:14 option handling was used.
+main - DEBUG - 2019-02-20 10:32:23 option handling was used.
+main - DEBUG - 2019-02-20 10:32:25 withdraw update written.
+main - DEBUG - 2019-02-20 10:32:25 withdraw update written.
+main - DEBUG - 2019-02-20 10:32:25 withdraw update written.
+main - DEBUG - 2019-02-20 10:32:28 option handling was used.
+main - DEBUG - 2019-02-20 10:32:33 option handling was used.
+main - DEBUG - 2019-02-20 10:33:15 option handling was used.
+main - DEBUG - 2019-02-20 11:01:33 main was called.
+main - DEBUG - 2019-02-20 11:01:39 lregister was called.
+main - DEBUG - 2019-02-20 11:01:44 register info written to file.
+main - DEBUG - 2019-02-20 11:01:44 login was called.
+main - DEBUG - 2019-02-20 11:01:53 password accessed.
+main - DEBUG - 2019-02-20 11:01:57 option handling was used.
+main - DEBUG - 2019-02-20 11:02:00 main was called.
+main - DEBUG - 2019-02-20 11:02:05 login was called.
+main - DEBUG - 2019-02-20 11:02:14 password accessed.
+main - DEBUG - 2019-02-20 11:02:22 option handling was used.
+main - DEBUG - 2019-02-20 11:02:28 option handling was used.
+main - DEBUG - 2019-02-20 11:02:32 deposit update written.
+main - DEBUG - 2019-02-20 11:02:32 deposit update written.
+main - DEBUG - 2019-02-20 11:02:33 option handling was used.
+main - DEBUG - 2019-02-20 11:02:38 option handling was used.
+main - DEBUG - 2019-02-20 11:02:40 withdraw update written.
+main - DEBUG - 2019-02-20 11:02:40 withdraw update written.
+main - DEBUG - 2019-02-20 11:02:40 withdraw update written.
+main - DEBUG - 2019-02-20 11:02:42 option handling was used.
+main - DEBUG - 2019-02-20 11:02:51 option handling was used.
+main - DEBUG - 2019-02-20 11:03:08 option handling was used.
+main - DEBUG - 2019-02-20 11:06:40 main was called.
+main - DEBUG - 2019-02-20 11:06:42 login was called.
+main - DEBUG - 2019-02-20 11:06:44 password accessed.
+main - DEBUG - 2019-02-20 11:06:51 option handling was used.
+main - DEBUG - 2019-02-20 11:06:56 Suspicious Error raised.
+main - DEBUG - 2019-02-20 11:07:10 main was called.
+main - DEBUG - 2019-02-20 11:07:23 main was called.
+main - DEBUG - 2019-02-20 11:07:25 login was called.
+main - DEBUG - 2019-02-20 11:07:25 password accessed.
+main - DEBUG - 2019-02-20 11:07:31 option handling was used.
+main - DEBUG - 2019-02-20 11:07:35 option handling was used.
+main - DEBUG - 2019-02-20 11:07:38 Overdraft Error raised.
+main - DEBUG - 2019-02-20 11:07:44 main was called.
+main - DEBUG - 2019-02-20 11:07:46 login was called.
+main - DEBUG - 2019-02-20 11:07:47 password accessed.
+main - DEBUG - 2019-02-20 11:08:02 option handling was used.
+main - DEBUG - 2019-02-20 11:08:10 option handling was used.
+main - DEBUG - 2019-02-20 11:08:13 Withdraw Error raised.

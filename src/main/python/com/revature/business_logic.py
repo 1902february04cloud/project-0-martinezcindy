@@ -13,7 +13,7 @@ LOGIN_ATTEMPTS = 0
 logger = logging.getLogger('main')
 
 def register():
-    logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" register was called.")
+    logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" lregister was called.")
     customer = input("Please choose a username: ")
     if data_access.user_exists(customer):
         print("Username not available. Please try again.\n")
@@ -27,6 +27,9 @@ def register():
     login(customer)
 
 def login(customer):
+    if not data_access.user_exists(customer):
+        print("login failed.")
+        return
     logger.debug(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+" login was called.")
     attempt = input("Enter your password: ")
     # print(attempt)
@@ -86,7 +89,7 @@ def handle_options(customer, x):
             raise SuspiciousDepositError
         data_access.deposit(customer, amount)
     elif x == 'p':
-        print ("Year-Month-Day Hour-Min-Sec Action")
+        print ("\nShowing:Year-Month-Day Hour-Min-Sec Action New Balance\n\n")
         for t in data_access.past_transactions(customer):
             print(t)
     elif x == 'l':

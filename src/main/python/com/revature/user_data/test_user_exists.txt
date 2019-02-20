@@ -1,2 +1,4 @@
 8a27683839f9c2be2028e11d0e622fb152309c1c29392d44669c4154
-Balance: 0
+Balance: 50            
+2019-02-20 09:36:11 Deposit of 56. New Balance: 56            
+2019-02-20 09:36:21 Withraw of 6. New Balance: 50
