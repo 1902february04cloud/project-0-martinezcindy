@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-# from __future__ import print_function
-# from ..io.data_access import register_user as register_user, access_user_password as access_user_password, user_exists as user_exists
-# C:\Users\marti\Repositories\project-0-martinezcindy\src\main\python\com\revature\io
-# from getpass import getpass
+
+# import getpass
 import data_access
 import hashlib
-from main import logger
+import logging
 from custom_error import WithdrawLimitError, SuspiciousDepositError, OverdraftError
-# TODO Add datetime, add encrytption
-# add logging to each function
+# TODO Add logging to each function
 
-WITHDRAW_LIMIT = 10,000
-DEPOSIT_LIMIT = 10,000
+WITHDRAW_LIMIT = 10000
+DEPOSIT_LIMIT = 10000
+LOGIN_ATTEMPTS = 0
+logger = logging.getLogger('main')
 
 def register():
     customer = input("Please choose a username: ")
@@ -19,18 +18,13 @@ def register():
         # logger.error()TODO
         print("Username not available. Please try again.\n")
         register()
-    passwd = input("Please choose a password: ") #condense lines for security / add salt TODO
-    # print(passwd)
+    passwd = input("Please choose a password: ") #add salt TODO
     hasher = hashlib.sha224()
     hasher.update(passwd.encode('utf-8'))
     hashed_passwd = hasher.hexdigest()
-    print(hashed_passwd)
     data_access.register_user(customer, hashed_passwd)
-    # current_user = x 
     print("\n\n ===Thank you for registering with Cinders Bank!===\n\nPlease login for options: \n")
     login(customer)
-    # return
-    # data_access.register_user(customer,passwd)
 
 def login(customer):
     attempt = input("Enter your password: ")
@@ -38,63 +32,65 @@ def login(customer):
     hasher = hashlib.sha224()
     hasher.update(attempt.encode('utf-8'))
     hashed_attempt = hasher.hexdigest()
-    print(hashed_attempt)
-    print(data_access.access_user_password(customer))
-    # if attempt == data_access.access_user_password(customer):
     if hashed_attempt==data_access.access_user_password(customer): 
-        print(f'====== Welcome back, {customer}! ======\n')
-        x = input("Login successful. \n \n Choose an option: \
+        print(f'\n====== Welcome back, {customer}! ======\n')
+        give_options(customer)
+    else:
+        global LOGIN_ATTEMPTS
+        print("Login Failed. Please try again.\n ")
+        if LOGIN_ATTEMPTS > 6:
+            print("Too many login attempts.")
+            return
+        LOGIN_ATTEMPTS += 1
+        login(customer)
+
+def give_options(customer):
+    x = input("Choose an option: \
             \n *Enter 'b' to view your balance\
             \n *Enter 'w' to withdraw \
             \n *Enter 'd' to deposit\
             \n *Enter 'p' to view past transactions\
             \n *Enter 'l' to logout\n")
-        handle_options(x)
-    else:
-            print("Login Failed. Please try again.\n ")
-            login(customer)
-        
-def handle_options(x):
+    try:
+        handle_options(customer, x)
+    except SuspiciousDepositError:
+        print("This is a suspicious deposit. Reported.")
+    except WithdrawLimitError:
+        print("This amount is over the "+ WITHDRAW_LIMIT)
+    except OverdraftError:
+        print("Overdraft Error. Insufficient balance.")
+          
+def handle_options(customer, x):
     if x == 'b':
-        print(data_access.get_balance())
+        print(data_access.get_balance(customer))
     elif x == 'w':
         amount = input("Enter amount to withdraw: ")
         assert amount.isdigit(), "Not a valid numeric amount."
         amount = int(amount)
-        balance = int(data_access.get_balance().split()[-1])
+        balance = int(data_access.get_balance(customer).split()[-1])
         if amount >= WITHDRAW_LIMIT:
             raise WithdrawLimitError
         if amount > balance:
             raise OverdraftError
 
-        data_access.withdraw(amount)     
+        data_access.withdraw(customer, amount)     
     elif x == 'd':
         amount = input("Enter amount to deposit: ")
         assert amount.isdigit(), "Not a valid numeric amount."
         amount = int(amount)
         if amount > DEPOSIT_LIMIT:
             raise SuspiciousDepositError
-        data_access.deposit(amount)
+        data_access.deposit(customer, amount)
     elif x == 'p':
-        print(data_access.past_transactions())
+        print ("Year-Month-Day Hour-Min-Sec Action")
+        for t in data_access.past_transactions(customer):
+            print(t)
     elif x == 'l':
         return
     else:
         x = input("Not a valid option. Please try again: ")
-        handle_options(x)
+        handle_options(customer, x)
     x = input("Transaction successful. Choose another option or enter 'l' to logout.\n")
-    handle_options(x)
+    handle_options(customer, x)
     
-def try_again(a):
-    if data_access.user_exists(a):
-        login(a)
-    else:
-        a = input("Login failed. Please try again.\n Username: ")
-        try_again(a)
     
-
-# def main():
-# 	print('TO-DO')
-
-# if __name__ == '__main__':
-# 	main()
